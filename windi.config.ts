@@ -12,6 +12,28 @@ export default defineConfig({
   ],
   theme: {
     extend: {
+      colors: {
+        deployr: {
+          100: '#fffffe',
+          200: '#929292',
+          300: '#88888a',
+          400: '#3e3d43',
+          500: '#2b2b37',
+          600: '#22222c',
+          700: '#171721',
+          800: '#14141c',
+        },
+        counterly: {
+          'logo': '#35C581',
+          'logo-light': '#39d68d',
+          'logo-lighter': '#42fca5',
+        },
+        blurple: {
+          100: '8699db',
+          200: '#7289da',
+          300: '#5f7ad9',
+        },
+      },
       typography: {
         DEFAULT: {
           css: {

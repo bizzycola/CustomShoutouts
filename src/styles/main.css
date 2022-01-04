@@ -3,13 +3,15 @@
 html,
 body,
 #app {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 html.dark {
-  background: #121212;
+  @apply bg-deployr-700 text-deployr-200;
+  overflow-x: hidden;
 }
 
 #nprogress {
@@ -40,4 +42,22 @@ html.dark {
     opacity-75 transition duration-200 ease-in-out
     hover:opacity-100 hover:text-teal-600;
   font-size: 0.9em;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .48);
+  /* border-radius: 3rem; */
+  @apply rounded-lg;
+}
+
+::-webkit-resizer {
+  padding: 1rem;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
 }
