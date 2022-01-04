@@ -4,13 +4,21 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AkarIconsTwitchFill: typeof import('~icons/akar-icons/twitch-fill')['default']
+    AntDesignDeleteOutlined: typeof import('~icons/ant-design/delete-outlined')['default']
     AntDesignHomeOutlined: typeof import('~icons/ant-design/home-outlined')['default']
+    AntDesignSaveOutlined: typeof import('~icons/ant-design/save-outlined')['default']
     Button: typeof import('./components/ui/Button.vue')['default']
+    BxBxCog: typeof import('~icons/bx/bx-cog')['default']
     BxBxHelpCircle: typeof import('~icons/bx/bx-help-circle')['default']
     BytesizeSignOut: typeof import('~icons/bytesize/sign-out')['default']
+    CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonWarning: typeof import('~icons/carbon/warning')['default']
+    CarbonWarningAlt: typeof import('~icons/carbon/warning-alt')['default']
+    CodiconSave: typeof import('~icons/codicon/save')['default']
     Counter: typeof import('./components/Counter.vue')['default']
+    CreateShoutoutDrawer: typeof import('./components/drawers/CreateShoutoutDrawer.vue')['default']
+    DataLoader: typeof import('./components/ui/DataLoader.vue')['default']
+    FaRegularSave: typeof import('~icons/fa-regular/save')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     Navigation: typeof import('./components/navigation/Navigation.vue')['default']
     NavigationLink: typeof import('./components/navigation/NavigationLink.vue')['default']

@@ -19,7 +19,7 @@ const signOut = () => {
 </script>
 
 <template>
-  <div v-if="accountData" class="fixed top-0 right-0 rounded-full m-3 z-1000 mr-8 focus:outline-none select-none">
+  <div v-if="accountData" class="fixed top-0 right-0 rounded-full m-3 z-1000 mr-12 focus:outline-none select-none">
     <!---->
     <Menu as="div" class="relative inline-block text-left outline-none select-none">
       <div>

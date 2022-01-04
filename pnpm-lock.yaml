@@ -4,12 +4,14 @@ specifiers:
   '@antfu/eslint-config': ^0.14.0
   '@auth0/auth0-spa-js': ^1.19.3
   '@headlessui/vue': ^1.4.2
+  '@heroicons/vue': ^1.0.5
   '@iconify-json/akar-icons': ^1.0.8
   '@iconify-json/ant-design': ^1.0.2
   '@iconify-json/bx': ^1.0.3
   '@iconify-json/bytesize': ^1.0.1
   '@iconify-json/carbon': ^1.0.12
   '@iconify-json/codicon': ^1.0.10
+  '@iconify-json/fa-regular': ^1.0.2
   '@iconify-json/ic': ^1.0.7
   '@iconify-json/teenyicons': ^1.0.1
   '@intlify/vite-plugin-vue-i18n': ^3.2.1
@@ -65,6 +67,7 @@ specifiers:
 dependencies:
   '@auth0/auth0-spa-js': 1.19.3
   '@headlessui/vue': 1.4.2_vue@3.2.26
+  '@heroicons/vue': 1.0.5_vue@3.2.26
   '@tailwindcss/forms': 0.4.0
   '@urql/exchange-auth': 0.1.7_graphql@16.2.0
   '@urql/vue': 0.6.1_graphql@16.2.0+vue@3.2.26
@@ -92,6 +95,7 @@ devDependencies:
   '@iconify-json/bytesize': 1.0.1
   '@iconify-json/carbon': 1.0.12
   '@iconify-json/codicon': 1.0.10
+  '@iconify-json/fa-regular': 1.0.2
   '@iconify-json/ic': 1.0.7
   '@iconify-json/teenyicons': 1.0.1
   '@intlify/vite-plugin-vue-i18n': 3.2.1_vite@2.7.6+vue-i18n@9.1.9
@@ -1627,6 +1631,14 @@ packages:
       vue: 3.2.26
     dev: false
 
+  /@heroicons/vue/1.0.5_vue@3.2.26:
+    resolution: {integrity: sha512-idWtp20Fjr7mqnD7EdGDUDi83oWHnx3SwyuQY6GZyF33OApzpBOLxz7xa4t6rPOddGz9tI5RGnndLk+ake7ijQ==}
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: 3.2.26
+    dev: false
+
   /@humanwhocodes/config-array/0.9.2:
     resolution: {integrity: sha512-UXOuFCGcwciWckOpmfKDq/GyhlTf9pN/BzG//x8p8zTOFEcGuA68ANXheFS0AGvy3qgZqLBUkMs7hqzqCKOVwA==}
     engines: {node: '>=10.10.0'}
@@ -1674,6 +1686,12 @@ packages:
 
   /@iconify-json/codicon/1.0.10:
     resolution: {integrity: sha512-JOmi1bFN5r2dO1oRLYjUBKIXLFfXcutvSbeM1FSAddKV+pC61RTyCau144j7w7z/bZzjW8y1EV/YL7XQDupHXw==}
+    dependencies:
+      '@iconify/types': 1.0.12
+    dev: true
+
+  /@iconify-json/fa-regular/1.0.2:
+    resolution: {integrity: sha512-eBxgGj36qbVxjwo7hPA8dxlVZ2pGDSDKg1hi7K56zIlPFz+1WWXfXOfu7X8oAv54QdOXdOKsqpQAuCvEyf6jqg==}
     dependencies:
       '@iconify/types': 1.0.12
     dev: true

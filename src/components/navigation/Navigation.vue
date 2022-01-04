@@ -35,6 +35,12 @@
         </template>
         How To
       </Navigationlink>
+      <NavigationLink to="/settings">
+        <template #icon>
+          <bx-bx-cog />
+        </template>
+        Settings
+      </Navigationlink>
     </div>
     <!--<router-link
       to="/profile"
