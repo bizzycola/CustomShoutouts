@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { XIcon } from '@heroicons/vue/outline'
 import type { UseEventBusReturn } from '@vueuse/core'
 import { useMutation } from 'vql'
 import Swal from 'sweetalert2'
@@ -82,7 +81,7 @@ mutation($input: CreateShoutoutInput!) {
                       <div class="ml-3 h-7 flex items-center">
                         <button type="button" class=" rounded-md text-gray-400 hover:text-white focus:outline-none " @click="open = false">
                           <span class="sr-only">Close panel</span>
-                          <XIcon class="h-6 w-6" aria-hidden="true" />
+                          <ant-design-close-circle-outlined class="h-6 w-6" aria-hidden="true" />
                         </button>
                       </div>
                     </div>
@@ -103,7 +102,7 @@ mutation($input: CreateShoutoutInput!) {
                             Message
                           </label>
                           <div class="mt-1">
-                            <textarea id="description" v-model="msg" name="description" rows="2" class="block w-full shadow-sm sm:text-sm focus:ring-teal-500 focus:border-teal-500 border-deployr-600 rounded-md bg-deployr-800 rounded-md p-3" />
+                            -
                           </div>
                         </div>
                       </div>
