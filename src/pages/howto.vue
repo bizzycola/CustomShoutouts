@@ -4,6 +4,18 @@ import { account } from '~/logic/store'
 
 <template>
   <div class="flex flex-col justify-center items-center">
+    <span class="text-2xl">StreamElements</span>
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left mb-2">
+      To setup your new custom shoutouts with the StreamElements chat bot, set your shoutout command to the following:<br>
+      <strong class="bg-deployr-600 p-2 w-full block select-all">${urlfetch https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/${1}}</strong>
+    </div>
+
+    <span class="text-2xl">StreamLabs</span>
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left mb-2">
+      To setup your new custom shoutouts with the StreamLabs CloudBot, set your shoutout command to the following:<br>
+      <strong class="bg-deployr-600 p-2 w-full block select-all">{readapi.https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/{target.name}}</strong>
+    </div>
+
     <span class="text-2xl">Creating Shoutouts</span>
     <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left mb-2">
       When creating a new custom shoutout, you're given a few special parameters you can use to get the game, title, username and twitch link of the user you are shouting out.<br>
@@ -19,18 +31,6 @@ import { account } from '~/logic/store'
       This could then become:<br><strong class="bg-deployr-600 p-2 w-full block select-all">Hey, check out BizzyColah! They last played Banjo-Kazooie at https://twitch.tv/bizzycolah</strong>
       <br><br>
       <strong>Remember</strong>: You can head over to the Settings page to set the default shoutout for any users not in your custom list.
-    </div>
-
-    <span class="text-2xl">StreamElements</span>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left mb-2">
-      To setup your new custom shoutouts with the StreamElements chat bot, set your shoutout command to the following:<br>
-      <strong class="bg-deployr-600 p-2 w-full block select-all">${urlfetch https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/${1}}</strong>
-    </div>
-
-    <span class="text-2xl">StreamLabs</span>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left">
-      To setup your new custom shoutouts with the StreamLabs CloudBot, set your shoutout command to the following:<br>
-      <strong class="bg-deployr-600 p-2 w-full block select-all">{readapi.https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/{target.name}}</strong>
     </div>
   </div>
 </template>
