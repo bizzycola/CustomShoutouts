@@ -22,9 +22,15 @@ import { account } from '~/logic/store'
     </div>
 
     <span class="text-2xl">StreamElements</span>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left">
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left mb-2">
       To setup your new custom shoutouts with the StreamElements chat bot, set your shoutout command to the following:<br>
       <strong class="bg-deployr-600 p-2 w-full block select-all">${urlfetch https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/${1}}</strong>
+    </div>
+
+    <span class="text-2xl">StreamLabs</span>
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 text-left">
+      To setup your new custom shoutouts with the StreamLabs CloudBot, set your shoutout command to the following:<br>
+      <strong class="bg-deployr-600 p-2 w-full block select-all">{readapi.https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/{target.name}}</strong>
     </div>
   </div>
 </template>
