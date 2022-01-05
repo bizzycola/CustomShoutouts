@@ -38,6 +38,10 @@ const add = async() => {
   }
 
   open.value = false
+  loading.value = false
+
+  userName.value = ''
+  msg.value = ''
   emit('refreshShoutouts')
 }
 </script>

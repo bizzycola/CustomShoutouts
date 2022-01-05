@@ -81,19 +81,20 @@ mutation ($id: UUID!) {
             v-for="so in data.shoutouts.nodes"
             :key="so.id"
             class="bg-deployr-700 cursor-pointer w-full p-2 mb-2 justify-start flex flex-row items-center justify-start content-center hover:bg-deployr-600 w-full"
+            @click.stop="updateSO(so)"
           >
             <span class="mr-1">
               <img
                 :src="so.avatar"
                 class="rounded-full w-5 mr-2"
                 :onerror="`this.onerror=null;this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(so.username ?? 'unknown')}'`"
+                @click.stop="updateSO(so)"
               >
             </span>
-            <span class="mr-2">{{ so.username }}</span>
-            <span class="text-deployr-200 overElipse text-left">{{ so.response }}</span>
+            <span class="mr-2" @click.stop="updateSO(so)">{{ so.username }}</span>
+            <span class="text-deployr-200 overElipse text-left" @click.stop="updateSO(so)">{{ so.response }}</span>
             <div class="ml-auto flex flex-row">
-              <bytesize-edit v-if="!fetchMutation" class="cursor-pointer hover:text-green-500 mr-2" @click="updateSO(so)" />
-              <ant-design-delete-outlined v-if="!fetchMutation" class="cursor-pointer hover:text-red-500" @click="removeSO(so.id)" />
+              <ant-design-delete-outlined v-if="!fetchMutation" class="cursor-pointer hover:text-red-500" @click.stop="removeSO(so.id)" />
               <Spinner v-else class="w-5 h-5" />
             </div>
           </div>
