@@ -2,6 +2,7 @@
 import { useEventBus } from '@vueuse/core'
 import { useMutation, useQuery } from 'vql'
 import Swal from 'sweetalert2'
+import type { Shoutout } from '~/types/shoutout'
 
 const { fetching, error, data, executeQuery } = useQuery({})
 const { executeMutation, fetching: fetchMutation } = useMutation()
@@ -13,6 +14,12 @@ const openAdd = () => {
 
 const loadShoutouts = async() => {
   executeQuery({})
+}
+
+const toUpdate = ref<Shoutout | null>(null)
+const updateSO = (shoutout: Shoutout) => {
+  toUpdate.value = shoutout
+  bus.emit('openUpdatePanel')
 }
 
 const removeSO = async(id: string) => {
@@ -85,6 +92,7 @@ mutation ($id: UUID!) {
             <span class="mr-2">{{ so.username }}</span>
             <span class="text-deployr-200 overElipse text-left">{{ so.response }}</span>
             <div class="ml-auto flex flex-row">
+              <bytesize-edit v-if="!fetchMutation" class="cursor-pointer hover:text-green-500 mr-2" @click="updateSO(so)" />
               <ant-design-delete-outlined v-if="!fetchMutation" class="cursor-pointer hover:text-red-500" @click="removeSO(so.id)" />
               <Spinner v-else class="w-5 h-5" />
             </div>
@@ -95,6 +103,7 @@ mutation ($id: UUID!) {
   </div>
 
   <CreateShoutoutDrawer :bus="bus" @refresh-shoutouts="loadShoutouts" />
+  <UpdateShoutoutDrawer v-if="toUpdate" :bus="bus" :shoutout="toUpdate" @refresh-shoutouts="loadShoutouts" />
 </template>
 
 <route lang="yaml">

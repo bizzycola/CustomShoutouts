@@ -11,6 +11,7 @@ declare module 'vue' {
     Button: typeof import('./components/ui/Button.vue')['default']
     BxBxCog: typeof import('~icons/bx/bx-cog')['default']
     BxBxHelpCircle: typeof import('~icons/bx/bx-help-circle')['default']
+    BytesizeEdit: typeof import('~icons/bytesize/edit')['default']
     BytesizeSignOut: typeof import('~icons/bytesize/sign-out')['default']
     CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonWarningAlt: typeof import('~icons/carbon/warning-alt')['default']
@@ -24,6 +25,7 @@ declare module 'vue' {
     README: typeof import('./components/README.md')['default']
     Spinner: typeof import('./components/ui/Spinner.vue')['default']
     TeenyiconsSigninOutline: typeof import('~icons/teenyicons/signin-outline')['default']
+    UpdateShoutoutDrawer: typeof import('./components/drawers/UpdateShoutoutDrawer.vue')['default']
     UserNav: typeof import('./components/ui/UserNav.vue')['default']
   }
 }

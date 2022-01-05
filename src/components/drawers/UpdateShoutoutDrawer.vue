@@ -10,20 +10,31 @@ const open = ref(false)
 const loading = ref(false)
 
 const emit = defineEmits(['refreshShoutouts'])
-const props = defineProps<{bus: UseEventBusReturn<string>}>()
+const props = defineProps<{bus: UseEventBusReturn<string>; shoutout: any}>()
+
+const userName = ref<string>(props.shoutout.username)
+const msg = ref<string>(props.shoutout.response)
+
 props.bus.on((e) => {
-  if (e === 'openPanel')
+  if (e === 'openUpdatePanel') {
+    userName.value = props.shoutout.username
+    msg.value = props.shoutout.response
+
     open.value = true
+  }
 })
 
-const userName = ref('')
-const msg = ref('')
+watch(props, (nw) => {
+  if (!nw) return
+  userName.value = nw.shoutout.username
+  msg.value = nw.shoutout.response
+}, { deep: true })
 
-const add = async() => {
+const update = async() => {
   loading.value = true
   const resp = await executeMutation({
     input: {
-      username: userName.value,
+      id: props.shoutout.id,
       response: msg.value,
     },
   })
@@ -38,13 +49,14 @@ const add = async() => {
   }
 
   open.value = false
+  loading.value = false
   emit('refreshShoutouts')
 }
 </script>
 
 <gql mutation>
-mutation($input: CreateShoutoutInput!) {
-    createShoutout(input: $input) {
+mutation($input: UpdateShoutoutInput!) {
+    updateShoutout(input: $input) {
         id,
         username,
         response,
@@ -76,7 +88,7 @@ mutation($input: CreateShoutoutInput!) {
                   <div class="py-6 px-4 bg-deployr-800 sm:px-6">
                     <div class="flex items-center justify-between">
                       <DialogTitle class="text-lg font-medium text-white">
-                        Add Shoutout
+                        Update Shoutout
                       </DialogTitle>
                       <div class="ml-3 h-7 flex items-center">
                         <button type="button" class=" rounded-md text-gray-400 hover:text-white focus:outline-none " @click="open = false">
@@ -94,7 +106,14 @@ mutation($input: CreateShoutoutInput!) {
                             Username
                           </label>
                           <div class="mt-1">
-                            <input id="project-name" v-model="userName" type="text" name="project-name" class="block w-full shadow-sm sm:text-sm focus:ring-teal-500 focus:border-teal-500 border-deployr-600 rounded-md bg-deployr-800">
+                            <input
+                              id="project-name"
+                              v-model="userName"
+                              type="text"
+                              name="project-name"
+                              readonly
+                              class="block w-full shadow-sm sm:text-sm focus:ring-teal-500 focus:border-teal-500 border-deployr-600 rounded-md bg-deployr-800"
+                            >
                           </div>
                         </div>
                         <div>
@@ -113,8 +132,8 @@ mutation($input: CreateShoutoutInput!) {
                   <button type="button" class="bg-red-800 py-2 px-4 border border-red-900 rounded-md shadow-sm text-sm font-medium text-gray-200 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" @click="open = false">
                     Cancel
                   </button>
-                  <button class="ml-4 inline-flex justify-center py-2 px-4 border border-teal-900 shadow-sm text-sm font-medium rounded-md text-white bg-teal-700 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" @click="add">
-                    Add
+                  <button class="ml-4 inline-flex justify-center py-2 px-4 border border-teal-900 shadow-sm text-sm font-medium rounded-md text-white bg-teal-700 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" @click="update">
+                    Update
                   </button>
                 </div>
                 <div v-else class="flex-shrink-0 px-4 py-4 flex justify-end">
