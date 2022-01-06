@@ -120,7 +120,7 @@ mutation($input: CreateShoutoutInput!) {
                         </div>
                         <div>
                           <label for="description" class="block text-sm font-medium text-gray-200">
-                            Message
+                            Message <span class="text-gray-400">({{ msg.length }}/500)</span>
                           </label>
                           <div class="mt-1">
                             <textarea

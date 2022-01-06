@@ -14,7 +14,7 @@ defineProps<{
   </div>
   <div v-else-if="error" class="grid h-full text-center place-items-center place-content-center">
     <carbon-warning-alt class="text-5xl" />
-    <span class="mt-4 text-sm font-bold text-red-700">{{ error }}</span>
+    <span class="mt-4 text-sm font-bold text-red-700">{{ error?.replace('[GraphQL] ', '') ?? '' }}</span>
   </div>
   <slot v-else />
 </template>
