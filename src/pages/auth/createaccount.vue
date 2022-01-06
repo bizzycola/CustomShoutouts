@@ -55,7 +55,10 @@ const signup = async() => {
       <h1 class="text-4xl text-counterly-logo text-center">
         Custom Shoutouts
       </h1>
-      <span class="text-sm text-center text-gruvbox-300 ">Please provide your signin code to continue.</span>
+      <span class="text-sm text-center text-gruvbox-300 ">
+        Please provide your signin code to continue.
+        Need one? Ask on my <a href="https://discord.gg/WpZeZpKchz" class="text-blurple-200 hover:text-blurple-300">Discord</a>.
+      </span>
       <!-- FORM START-->
       <input v-model="signupCode" placeholder="Invite Code" type="text" class="py-3 px-4 pr-8 bg-deployr-700 border-dark-600 focus:border-teal-900 shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline">
       <!-- FORM END -->

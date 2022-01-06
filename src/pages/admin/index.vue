@@ -117,6 +117,7 @@ mutation($code: String!) {
     </div>
     <div
       class="flex-1 p-1 bg-deployr-800 -lg:w-full xl:w-4xl -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col justify-center rounded-b-md"
+      :class="{'items-start': !fetching, 'items-center p-15': fetching}"
     >
       <DataLoader :fetching="fetching" :error="error?.message" message="Loading codes">
         <div v-if="codes && codes.length > 0" class="flex flex-col max-h-md overflow-auto gslist w-full -lg:mb-10" style="max-height: 50vh;">
