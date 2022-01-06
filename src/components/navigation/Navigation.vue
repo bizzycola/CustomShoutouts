@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { account } from '~/logic/store'
 
+const accData = JSON.parse(account.value)
 </script>
 
 <template>
@@ -40,6 +42,12 @@
           <bx-bx-cog />
         </template>
         Settings
+      </Navigationlink>
+      <NavigationLink v-if="accData.isAdmin" to="/admin">
+        <template #icon>
+          <eos-icons-admin-outlined />
+        </template>
+        Admin
       </Navigationlink>
     </div>
     <!--<router-link

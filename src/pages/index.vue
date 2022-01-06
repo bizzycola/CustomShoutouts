@@ -93,25 +93,6 @@ mutation ($id: UUID!) {
 
 <template>
   <div class="flex flex-col justify-center items-center">
-    <!--<div class="pb-5 border-b border-deployr-500 sm:flex sm:items-center sm:justify-between -lg:w-full -lg:mt-5 lg:w-2xl">
-      <h3 class="text-lg leading-6 font-medium text-gray-200">
-        Custom Shoutouts
-      </h3>
-      <div class="mt-3 flex sm:mt-0 sm:ml-4">
-        <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-800 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" @click="openAdd">
-          Create
-        </button>
-      </div>
-    </div>-->
-    <!--<span class="text-2xl">Custom Shoutouts</span>-->
-    <!--<div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2">
-      <button
-        class="bg-green-800 p-2 hover:bg-green-700 flex flex-row items-center"
-        @click="openAdd"
-      >
-        <carbon-add-alt class="mr-2" />Add Shoutout
-      </button>
-    </div>-->
     <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
