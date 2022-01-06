@@ -112,7 +112,7 @@ mutation ($id: UUID!) {
         <carbon-add-alt class="mr-2" />Add Shoutout
       </button>
     </div>-->
-    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
           <h3 class="text-lg leading-6 font-medium text-gray-200">
@@ -127,32 +127,11 @@ mutation ($id: UUID!) {
       </div>
     </div>
     <div
-      class="flex-1 p-1 bg-deployr-800 -lg:w-full -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col items-start justify-center rounded-b-md"
+      class="flex-1 p-1 bg-deployr-800 -lg:w-full xl:w-4xl -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col justify-center rounded-b-md"
+      :class="{'items-start': !fetching, 'items-center p-15': fetching}"
     >
       <DataLoader :fetching="fetching" :error="error?.message" message="Loading shoutouts">
         <div v-if="shoutouts && shoutouts.length > 0" class="flex flex-col max-h-md overflow-auto gslist w-full -lg:mb-10" style="max-height: 50vh;">
-          <!--<div
-            v-for="so in data.shoutouts.nodes"
-
-            :key="so.id"
-            class="bg-deployr-700 cursor-pointer w-full p-2 mb-2 justify-start flex flex-row items-center justify-start content-center hover:bg-deployr-600 w-full"
-            @click.stop="updateSO(so)"
-          >
-            <span class="mr-1">
-              <img
-                :src="so.avatar"
-                class="rounded-full w-5 mr-2"
-                :onerror="`this.onerror=null;this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(so.username ?? 'unknown')}'`"
-                @click.stop="updateSO(so)"
-              >
-            </span>
-            <span class="mr-2" @click.stop="updateSO(so)">{{ so.username }}</span>
-            <span class="text-deployr-200 overElipse text-left" @click.stop="updateSO(so)">{{ so.response }}</span>
-            <div class="ml-auto flex flex-row">
-              <ant-design-delete-outlined v-if="!fetchMutation" class="cursor-pointer hover:text-red-500" @click.stop="removeSO(so.id)" />
-              <Spinner v-else class="w-5 h-5" />
-            </div>
-          </div>-->
           <ul
             role="list"
             class=" divide-y divide-deployr-600 "
