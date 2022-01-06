@@ -122,7 +122,7 @@ mutation($input: CreateSignupCodeInput!) {
                         </div>
                         <div>
                           <label for="description" class="block text-sm font-medium text-gray-200">
-                            Comment
+                            Comment <span class="text-gray-400">({{ msg.length }}/500)</span>
                           </label>
                           <div class="mt-1">
                             <textarea
