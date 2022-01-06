@@ -3,7 +3,9 @@ import { useEventBus } from '@vueuse/core'
 import { useMutation, useQuery } from 'vql'
 import Swal from 'sweetalert2'
 import type { Shoutout } from '~/types/shoutout'
+import { useToast } from '~/composables/useToast'
 
+const { createToast } = useToast()
 const { fetching, error, data, executeQuery } = useQuery({})
 const { executeMutation, fetching: fetchMutation } = useMutation()
 
@@ -15,6 +17,13 @@ const openAdd = () => {
 const loadShoutouts = async() => {
   executeQuery({})
 }
+
+const shoutouts = ref<Shoutout[]>([])
+watch(data, (nw) => {
+  if (!nw) return
+
+  shoutouts.value = nw.shoutouts.nodes
+})
 
 const toUpdate = ref<Shoutout | null>(null)
 const updateSO = (shoutout: Shoutout) => {
@@ -42,7 +51,22 @@ const removeSO = async(id: string) => {
     return
   }
 
-  loadShoutouts()
+  // loadShoutouts()
+  shoutouts.value.splice(shoutouts.value.findIndex(item => item.id === id), 1)
+  createToast({
+    type: 'success',
+    title: 'Shoutout Removed',
+    message: 'The custom shoutout has been removed.',
+    duration: 2,
+  })
+}
+
+const onAdded = (shoutout: Shoutout) => {
+  shoutouts.value.unshift(shoutout)
+}
+const onUpdated = (shoutout: any) => {
+  const so = shoutouts.value.findIndex(item => item.id === shoutout.id)
+  shoutouts.value[so].response = shoutout.response
 }
 </script>
 
@@ -103,10 +127,10 @@ mutation ($id: UUID!) {
       </div>
     </div>
     <div
-      class="flex-1 p-3 bg-deployr-800 -lg:w-full -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col items-start justify-center rounded-b-md"
+      class="flex-1 p-1 bg-deployr-800 -lg:w-full -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col items-start justify-center rounded-b-md"
     >
       <DataLoader :fetching="fetching" :error="error?.message" message="Loading shoutouts">
-        <div v-if="data.shoutouts.nodes && data.shoutouts.nodes.length > 0" class="flex flex-col max-h-md overflow-auto gslist w-full -lg:mb-10" style="max-height: 50vh;">
+        <div v-if="shoutouts && shoutouts.length > 0" class="flex flex-col max-h-md overflow-auto gslist w-full -lg:mb-10" style="max-height: 50vh;">
           <!--<div
             v-for="so in data.shoutouts.nodes"
 
@@ -134,7 +158,7 @@ mutation ($id: UUID!) {
             class=" divide-y divide-deployr-600 "
           >
             <li
-              v-for="so in data.shoutouts.nodes"
+              v-for="so in shoutouts"
               :key="so.id"
 
               class="py-4 px-2 hover:bg-deployr-700 hover:cursor-pointer"
@@ -186,8 +210,8 @@ mutation ($id: UUID!) {
     </div>
   </div>
 
-  <CreateShoutoutDrawer :bus="bus" @refresh-shoutouts="loadShoutouts" />
-  <UpdateShoutoutDrawer v-if="toUpdate" :bus="bus" :shoutout="toUpdate" @refresh-shoutouts="loadShoutouts" />
+  <CreateShoutoutDrawer :bus="bus" @refresh-shoutouts="onAdded" />
+  <UpdateShoutoutDrawer v-if="toUpdate" :bus="bus" :shoutout="toUpdate" @refresh-shoutouts="onUpdated" />
 </template>
 
 <route lang="yaml">

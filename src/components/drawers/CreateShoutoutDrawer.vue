@@ -3,8 +3,10 @@ import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } f
 import type { UseEventBusReturn } from '@vueuse/core'
 import { useMutation } from 'vql'
 import Swal from 'sweetalert2'
+import { useToast } from '~/composables/useToast'
 
-const { executeMutation, fetching: fetchMutation } = useMutation()
+const { createToast } = useToast()
+const { executeMutation } = useMutation()
 
 const open = ref(false)
 const loading = ref(false)
@@ -44,17 +46,30 @@ const add = async() => {
 
   userName.value = ''
   msg.value = 'Hey, checkout {user} at {link}! They were last seen playing {game}'
-  emit('refreshShoutouts')
+  emit('refreshShoutouts', resp.data.createShoutout)
+
+  setTimeout(() => {
+    createToast({
+      type: 'success',
+      title: 'Shoutout Added',
+      message: 'The custom shoutout has been added.',
+      duration: 2,
+    })
+  }, 1000)
 }
 </script>
 
 <gql mutation>
 mutation($input: CreateShoutoutInput!) {
     createShoutout(input: $input) {
-        id,
-        username,
-        response,
+        id
+        ownerId
+        userId
+        username
+        response
         avatar
+        created
+        updated
     }
 }
 </gql>

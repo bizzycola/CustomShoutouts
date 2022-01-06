@@ -12,4 +12,5 @@ useHead({
 
 <template>
   <router-view />
+  <ToastDispatcher />
 </template>

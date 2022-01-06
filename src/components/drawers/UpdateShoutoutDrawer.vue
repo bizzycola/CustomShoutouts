@@ -3,8 +3,10 @@ import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } f
 import type { UseEventBusReturn } from '@vueuse/core'
 import { useMutation } from 'vql'
 import Swal from 'sweetalert2'
+import { useToast } from '~/composables/useToast'
 
-const { executeMutation, fetching: fetchMutation } = useMutation()
+const { createToast } = useToast()
+const { executeMutation } = useMutation()
 
 const open = ref(false)
 const loading = ref(false)
@@ -50,7 +52,16 @@ const update = async() => {
 
   open.value = false
   loading.value = false
-  emit('refreshShoutouts')
+  emit('refreshShoutouts', { id: props.shoutout.id, response: msg.value })
+
+  setTimeout(() => {
+    createToast({
+      type: 'success',
+      title: 'Shoutout Updated',
+      message: 'The custom shoutout has been updated.',
+      duration: 2,
+    })
+  }, 1000)
 }
 </script>
 
