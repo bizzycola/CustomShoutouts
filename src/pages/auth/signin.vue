@@ -34,7 +34,7 @@ const signin = async() => {
         Sign in with Twitch
       </Button>
       <div v-else class="grid w-10 h-10 mx-auto text-green-900 bg-green-500 rounded-full place-items-center">
-        <Spinner class="w-8 h-8" />
+        <Spinner class="w-5 h-5" />
       </div>
     </div>
   </div>

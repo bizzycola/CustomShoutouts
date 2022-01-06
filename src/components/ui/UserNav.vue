@@ -19,12 +19,12 @@ const signOut = () => {
 </script>
 
 <template>
-  <div v-if="accountData" class="fixed top-0 right-0 rounded-full m-3 z-1000 mr-12 focus:outline-none select-none">
+  <div v-if="accountData" class="fixed top-0 right-0 rounded-full shadow-md m-3 z-500 p-0 w-10 h-10  focus:outline-none select-none hover:shadow-lg">
     <!---->
     <Menu as="div" class="relative inline-block text-left outline-none select-none">
       <div>
         <MenuButton
-          class="text-sm font-medium rounded-md flex flex-row items-center text-left p-3 text-white focus:outline-none select-none"
+          class="text-sm font-medium rounded-md flex flex-row items-center text-left w-10 text-white focus:outline-none select-none"
         >
           <img
             class="flex-3 display-inline w-10 rounded-full cursor-pointer mr-2 hover:opacity-75"
@@ -66,7 +66,7 @@ const signOut = () => {
       </transition>
     </Menu>
   </div>
-  <div v-else class="fixed top-0 right-0 rounded-full shadow-md m-5  z-1000 text-white bg-deployr-700 hover:bg-dca-800 cursor-pointer p-3" @click="signIn">
+  <div v-else class="fixed top-0 right-0 rounded-full shadow-md m-5  z-500 text-white bg-deployr-700 hover:bg-dca-800 cursor-pointer p-3" @click="signIn">
     <teenyicons-signin-outline />
   </div>
 </template>

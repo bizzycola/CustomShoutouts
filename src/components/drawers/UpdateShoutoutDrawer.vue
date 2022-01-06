@@ -42,7 +42,7 @@ const update = async() => {
   if (resp.error) {
     Swal.fire({
       title: 'Error!',
-      text: `${resp.error.message}`,
+      text: `${resp.error.message.replace('[GraphQL] ', '')}`,
       icon: 'error',
     })
     return
@@ -67,9 +67,9 @@ mutation($input: UpdateShoutoutInput!) {
 
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="fixed inset-0 overflow-hidden" @close="open = false">
-      <div class="fixed inset-0 overflow-hidden opacity-50 bg-deployr-800 z-5" />
-      <div class="absolute inset-0 overflow-hidden z-10">
+    <Dialog as="div" class="fixed inset-0 overflow-hidden z-900" @close="open = false">
+      <div class="fixed inset-0 overflow-hidden opacity-50 bg-deployr-800 z-950" />
+      <div class="absolute inset-0 overflow-hidden z-1000">
         <DialogOverlay class="absolute inset-0" />
 
         <div class="fixed inset-y-0 pl-16 max-w-full right-0 flex">
@@ -123,6 +123,16 @@ mutation($input: UpdateShoutoutInput!) {
                           <div class="mt-1">
                             <textarea id="description" v-model="msg" name="description" rows="2" class="block w-full shadow-sm sm:text-sm focus:ring-teal-500 focus:border-teal-500 border-deployr-600 rounded-md bg-deployr-800 rounded-md p-3" />
                           </div>
+                          <p id="email-description" class="mt-2 text-sm text-gray-500">
+                            If the rendered shoutout exceeds 500 characters, it will be cut off by Twitch.
+                          </p>
+                        </div>
+                        <div class="text-gray-300 text-sm border-t-1 border-t-deployr-600">
+                          <span class="text-md font-bold block font-medium mt-2 mb-1">Variables</span>
+                          <strong class="font-bold select-all">{user}</strong>: Returns their username<br>
+                          <strong class="font-bold select-all">{title}</strong>: Returns their set stream title<br>
+                          <strong class="font-bold select-all">{game}</strong>: Returns their set stream game<br>
+                          <strong class="font-bold select-all">{link}</strong>: Returns the twitch link of the user<br>
                         </div>
                       </div>
                     </div>

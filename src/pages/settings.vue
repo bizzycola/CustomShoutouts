@@ -20,7 +20,7 @@ const saveSo = async() => {
   if (resp.error) {
     Swal.fire({
       title: 'Error!',
-      text: `${resp.error.message}`,
+      text: `${resp.error.message.replace('[GraphQL] ', '')}`,
       icon: 'error',
     })
   }

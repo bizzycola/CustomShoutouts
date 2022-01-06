@@ -11,7 +11,6 @@ declare module 'vue' {
     Button: typeof import('./components/ui/Button.vue')['default']
     BxBxCog: typeof import('~icons/bx/bx-cog')['default']
     BxBxHelpCircle: typeof import('~icons/bx/bx-help-circle')['default']
-    BytesizeEdit: typeof import('~icons/bytesize/edit')['default']
     BytesizeSignOut: typeof import('~icons/bytesize/sign-out')['default']
     CarbonAddAlt: typeof import('~icons/carbon/add-alt')['default']
     CarbonWarningAlt: typeof import('~icons/carbon/warning-alt')['default']
