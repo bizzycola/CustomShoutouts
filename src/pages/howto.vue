@@ -53,7 +53,7 @@ import { account } from '~/logic/store'
     </div>
     <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left">
       To setup your new custom shoutouts with NightBot, set your shoutout command Message to the following:<br>
-      <strong class="bg-deployr-600 p-2 w-full block select-all">$(urlfetch https://csoapi.bizzy.live/api/shoutouts/43641629/$(1))</strong>
+      <strong class="bg-deployr-600 p-2 w-full block select-all">$(urlfetch https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/$(1))</strong>
     </div>
 
     <hr class="mb-3 mt-3 border-b-deployr-600 border-0 border-b-1 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl">
