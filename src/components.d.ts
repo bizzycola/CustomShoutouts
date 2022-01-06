@@ -18,6 +18,7 @@ declare module 'vue' {
     Counter: typeof import('./components/Counter.vue')['default']
     CreateShoutoutDrawer: typeof import('./components/drawers/CreateShoutoutDrawer.vue')['default']
     DataLoader: typeof import('./components/ui/DataLoader.vue')['default']
+    FaRegularSave: typeof import('~icons/fa-regular/save')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     Navigation: typeof import('./components/navigation/Navigation.vue')['default']
     NavigationLink: typeof import('./components/navigation/NavigationLink.vue')['default']

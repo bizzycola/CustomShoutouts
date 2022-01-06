@@ -41,9 +41,17 @@ mutation($so: String!) {
 
 <template>
   <div class="flex flex-col justify-center items-center">
-    <span class="text-2xl">Settings</span>
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+      <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
+        <div class="ml-4 mt-2">
+          <h3 class="text-lg leading-6 font-medium text-gray-200">
+            Settings
+          </h3>
+        </div>
+      </div>
+    </div>
     <div
-      class="flex-1 p-5 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl mt-2 flex flex-col items-start justify-start "
+      class="flex-1 p-5 rounded-b-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl flex flex-col items-start justify-start "
       :class="{'items-center': fetching, 'w-full': !fetching}"
     >
       <DataLoader :fetching="fetching" :error="error?.message" message="Loading settings">
