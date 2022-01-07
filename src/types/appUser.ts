@@ -5,6 +5,7 @@ export interface AppUser {
   avatarUrl: string
   isAdmin: boolean
   defaultSO: string
+  maxAllowedShoutouts: number
   created: Date
   updated: Date
 }

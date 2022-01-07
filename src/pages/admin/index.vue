@@ -71,6 +71,14 @@ const copyCode = (code: string) => {
 const openAdd = () => {
   bus.emit('openPanel')
 }
+
+const formatStat = (n: number) => {
+  if (n < 1e3) return n
+  if (n >= 1e3 && n < 1e6) return `${+(n / 1e3).toFixed(1)}K`
+  if (n >= 1e6 && n < 1e9) return `${+(n / 1e6).toFixed(1)}M`
+  if (n >= 1e9 && n < 1e12) return `${+(n / 1e9).toFixed(1)}B`
+  if (n >= 1e12) return `${+(n / 1e12).toFixed(1)}T`
+}
 </script>
 
 <gql>
@@ -125,7 +133,7 @@ mutation($code: String!) {
                     Users
                   </dt>
                   <dd class="order-1 text-5xl font-extrabold text-indigo-600">
-                    {{ data.siteStats.userCount }}
+                    {{ formatStat(data.siteStats.userCount) }}
                   </dd>
                 </div>
                 <div class="flex flex-col border-t border-b border-deployr-600 p-6 text-center sm:border-0 sm:border-l sm:border-r">
@@ -133,7 +141,7 @@ mutation($code: String!) {
                     Custom Shoutouts
                   </dt>
                   <dd class="order-1 text-5xl font-extrabold text-indigo-600">
-                    {{ data.siteStats.customShoutoutCount }}
+                    {{ formatStat(data.siteStats.customShoutoutCount) }}
                   </dd>
                 </div>
                 <div class="flex flex-col border-t border-deployr-600 p-6 text-center sm:border-0 sm:border-l">
@@ -141,7 +149,7 @@ mutation($code: String!) {
                     Total Shoutouts Called
                   </dt>
                   <dd class="order-1 text-5xl font-extrabold text-indigo-600">
-                    {{ data.siteStats.totalShoutoutCalls }}
+                    {{ formatStat(data.siteStats.totalShoutoutCalls) }}
                   </dd>
                 </div>
               </dl>
@@ -159,9 +167,12 @@ mutation($code: String!) {
           </h3>
         </div>
         <div class="ml-4 mt-2 flex-shrink-0">
-          <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" @click="openAdd">
+          <button type="button" class="mr-2 relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-800 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" @click="openAdd">
             Add Code
           </button>
+          <router-link class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-800 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" to="/admin/users">
+            Users
+          </router-link>
         </div>
       </div>
     </div>
