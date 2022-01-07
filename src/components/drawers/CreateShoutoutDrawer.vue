@@ -142,6 +142,7 @@ mutation($input: CreateShoutoutInput!) {
                           <strong class="font-bold select-all">{title}</strong>: Returns their set stream title<br>
                           <strong class="font-bold select-all">{game}</strong>: Returns their set stream game<br>
                           <strong class="font-bold select-all">{link}</strong>: Returns the twitch link of the user<br>
+                          <strong class="font-bold select-all">{count}</strong>: Number of times this shoutout has been triggered
                         </div>
                       </div>
                     </div>
