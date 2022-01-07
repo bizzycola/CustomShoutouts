@@ -10,7 +10,7 @@ import { account } from '~/logic/store'
       </h3>
     </div>
 
-    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md shadow-lg">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
           <h3 class="text-lg leading-6 font-medium text-gray-200">
@@ -19,14 +19,14 @@ import { account } from '~/logic/store'
         </div>
       </div>
     </div>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl text-left xl:w-4xl">
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl text-left xl:w-4xl shadow-lg">
       To setup your new custom shoutouts with the StreamElements chat bot, set your shoutout command to the following:<br>
       <strong class="bg-deployr-600 p-2 w-full block select-all">${urlfetch https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/${1}}</strong>
     </div>
 
     <hr class="mb-3 mt-3 border-b-deployr-600 border-0 border-b-1 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl">
 
-    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md shadow-lg">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
           <h3 class="text-lg leading-6 font-medium text-gray-200">
@@ -35,14 +35,14 @@ import { account } from '~/logic/store'
         </div>
       </div>
     </div>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left">
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left shadow-lg">
       To setup your new custom shoutouts with the StreamLabs CloudBot, set your shoutout command to the following:<br>
       <strong class="bg-deployr-600 p-2 w-full block select-all">{readapi.https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/{target.name}}</strong>
     </div>
 
     <hr class="mb-3 mt-3 border-b-deployr-600 border-0 border-b-1 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl">
 
-    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md shadow-lg">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
           <h3 class="text-lg leading-6 font-medium text-gray-200">
@@ -51,14 +51,14 @@ import { account } from '~/logic/store'
         </div>
       </div>
     </div>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left">
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left shadow-lg">
       To setup your new custom shoutouts with NightBot, set your shoutout command Message to the following:<br>
       <strong class="bg-deployr-600 p-2 w-full block select-all">$(urlfetch https://csoapi.bizzy.live/api/shoutouts/{{ JSON.parse(account).id }}/$(1))</strong>
     </div>
 
     <hr class="mb-3 mt-3 border-b-deployr-600 border-0 border-b-1 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl">
 
-    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md shadow-lg">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
           <h3 class="text-lg leading-6 font-medium text-gray-200">
@@ -67,7 +67,7 @@ import { account } from '~/logic/store'
         </div>
       </div>
     </div>
-    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left mb-2">
+    <div class="flex-1 p-3 rounded-md bg-deployr-800 -lg:w-full -lg:m-2 lg:w-2xl xl:w-4xl text-left mb-2 shadow-lg">
       When creating a new custom shoutout, you're given a few special parameters you can use to get the game, title, username and twitch link of the user you are shouting out.<br>
       <br>
       The variables can use are as follows:<br>

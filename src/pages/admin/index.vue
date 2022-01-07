@@ -90,6 +90,11 @@ const openAdd = () => {
             }
         }
     }
+    siteStats {
+        userCount
+        customShoutoutCount
+        totalShoutoutCalls
+    }
 }
 </gql>
 <gql mutation>
@@ -100,7 +105,53 @@ mutation($code: String!) {
 
 <template>
   <div v-if="!loading" class="flex flex-col justify-center items-center">
-    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md">
+    <!-- stats -->
+    <div class="pt-12 sm:pt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-extrabold text-gray-200 sm:text-4xl">
+            Statistics
+          </h2>
+        </div>
+      </div>
+      <div class="mt-10 pb-12 sm:pb-16 ">
+        <div class="relative">
+          <div class="absolute inset-0 h-1/2" />
+          <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+              <dl class="rounded-lg bg-deployr-800 shadow-lg sm:grid sm:grid-cols-3 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl">
+                <div class="flex flex-col border-b border-deployr-600 p-6 text-center sm:border-0 sm:border-r">
+                  <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
+                    Users
+                  </dt>
+                  <dd class="order-1 text-5xl font-extrabold text-indigo-600">
+                    {{ data.siteStats.userCount }}
+                  </dd>
+                </div>
+                <div class="flex flex-col border-t border-b border-deployr-600 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+                  <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
+                    Custom Shoutouts
+                  </dt>
+                  <dd class="order-1 text-5xl font-extrabold text-indigo-600">
+                    {{ data.siteStats.customShoutoutCount }}
+                  </dd>
+                </div>
+                <div class="flex flex-col border-t border-deployr-600 p-6 text-center sm:border-0 sm:border-l">
+                  <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
+                    Total Shoutouts Called
+                  </dt>
+                  <dd class="order-1 text-5xl font-extrabold text-indigo-600">
+                    {{ data.siteStats.totalShoutoutCalls }}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- codes -->
+    <div class="bg-deployr-800 px-4 py-5 border-b border-deployr-600 sm:px-6 xl:w-4xl -lg:w-full -lg:mt-5 lg:w-2xl rounded-t-md shadow-lg">
       <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
         <div class="ml-4 mt-2">
           <h3 class="text-lg leading-6 font-medium text-gray-200">
@@ -115,7 +166,7 @@ mutation($code: String!) {
       </div>
     </div>
     <div
-      class="flex-1 p-1 bg-deployr-800 -lg:w-full xl:w-4xl -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col justify-center rounded-b-md"
+      class="flex-1 p-1 bg-deployr-800 -lg:w-full xl:w-4xl -lg:m-2 -lg:mt-0 lg:w-2xl flex flex-col justify-center rounded-b-md shadow-lg"
       :class="{'items-start': !fetching, 'items-center p-15': fetching}"
     >
       <DataLoader :fetching="fetching" :error="error?.message" message="Loading codes">

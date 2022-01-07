@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AkarIconsInfo: typeof import('~icons/akar-icons/info')['default']
     AkarIconsTriangleAlert: typeof import('~icons/akar-icons/triangle-alert')['default']
+    AkarIconsTwitchFill: typeof import('~icons/akar-icons/twitch-fill')['default']
     AntDesignCloseCircleOutlined: typeof import('~icons/ant-design/close-circle-outlined')['default']
     AntDesignDeleteOutlined: typeof import('~icons/ant-design/delete-outlined')['default']
     AntDesignHomeOutlined: typeof import('~icons/ant-design/home-outlined')['default']
