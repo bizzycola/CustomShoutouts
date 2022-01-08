@@ -4,11 +4,18 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AkarIconsBell: typeof import('~icons/akar-icons/bell')['default']
+    AkarIconsCheck: typeof import('~icons/akar-icons/check')['default']
+    AkarIconsCircleCheck: typeof import('~icons/akar-icons/circle-check')['default']
     AkarIconsInfo: typeof import('~icons/akar-icons/info')['default']
+    AkarIconsSend: typeof import('~icons/akar-icons/send')['default']
+    AkarIconsTag: typeof import('~icons/akar-icons/tag')['default']
     AkarIconsTriangleAlert: typeof import('~icons/akar-icons/triangle-alert')['default']
     AkarIconsTwitchFill: typeof import('~icons/akar-icons/twitch-fill')['default']
+    'AntDesign:editOutlined': typeof import('~icons/ant-design/edit-outlined')['default']
     AntDesignCloseCircleOutlined: typeof import('~icons/ant-design/close-circle-outlined')['default']
     AntDesignDeleteOutlined: typeof import('~icons/ant-design/delete-outlined')['default']
+    AntDesignEditOutlined: typeof import('~icons/ant-design/edit-outlined')['default']
     AntDesignExclamationCircleOutlined: typeof import('~icons/ant-design/exclamation-circle-outlined')['default']
     AntDesignHomeOutlined: typeof import('~icons/ant-design/home-outlined')['default']
     AntDesignSearchOutlined: typeof import('~icons/ant-design/search-outlined')['default']
@@ -25,6 +32,8 @@ declare module 'vue' {
     EosIconsAdminOutlined: typeof import('~icons/eos-icons/admin-outlined')['default']
     FaRegularSave: typeof import('~icons/fa-regular/save')['default']
     Footer: typeof import('./components/Footer.vue')['default']
+    HeroiconsOutlineSelector: typeof import('~icons/heroicons-outline/selector')['default']
+    LsNotify: typeof import('~icons/ls/notify')['default']
     Navigation: typeof import('./components/navigation/Navigation.vue')['default']
     NavigationLink: typeof import('./components/navigation/NavigationLink.vue')['default']
     README: typeof import('./components/README.md')['default']
@@ -32,6 +41,7 @@ declare module 'vue' {
     TeenyiconsSigninOutline: typeof import('~icons/teenyicons/signin-outline')['default']
     Toast: typeof import('./components/toasts/Toast.vue')['default']
     ToastDispatcher: typeof import('./components/toasts/ToastDispatcher.vue')['default']
+    ToastIcons: typeof import('./components/toasts/ToastIcons.vue')['default']
     UpdateShoutoutDrawer: typeof import('./components/drawers/UpdateShoutoutDrawer.vue')['default']
     UserNav: typeof import('./components/ui/UserNav.vue')['default']
   }

@@ -66,7 +66,7 @@ const signup = async() => {
         Create Account
       </Button>
       <div v-else class="grid w-10 h-10 mx-auto text-green-900 bg-green-500 rounded-full place-items-center">
-        <Spinner class="w-7 h-7" />
+        <Spinner class="!w-7 !h-7" />
       </div>
     </div>
   </div>

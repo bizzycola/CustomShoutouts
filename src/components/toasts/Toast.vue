@@ -14,7 +14,7 @@
       <div class="p-4">
         <div class="flex items-start">
           <div class="flex-shrink-0">
-            <CheckCircleIcon
+            <akar-icons-circle-check
               v-if="type === 'success'"
               class="h-6 w-6 text-green-400"
               aria-hidden="true"

@@ -133,7 +133,7 @@ mutation($code: String!) {
                     Users
                   </dt>
                   <dd class="order-1 text-5xl font-extrabold text-indigo-600">
-                    {{ formatStat(data.siteStats.userCount) }}
+                    {{ formatStat(data?.siteStats?.userCount) }}
                   </dd>
                 </div>
                 <div class="flex flex-col border-t border-b border-deployr-600 p-6 text-center sm:border-0 sm:border-l sm:border-r">
@@ -141,7 +141,7 @@ mutation($code: String!) {
                     Custom Shoutouts
                   </dt>
                   <dd class="order-1 text-5xl font-extrabold text-indigo-600">
-                    {{ formatStat(data.siteStats.customShoutoutCount) }}
+                    {{ formatStat(data?.siteStats?.customShoutoutCount) }}
                   </dd>
                 </div>
                 <div class="flex flex-col border-t border-deployr-600 p-6 text-center sm:border-0 sm:border-l">
@@ -149,7 +149,7 @@ mutation($code: String!) {
                     Total Shoutouts Called
                   </dt>
                   <dd class="order-1 text-5xl font-extrabold text-indigo-600">
-                    {{ formatStat(data.siteStats.totalShoutoutCalls) }}
+                    {{ formatStat(data?.siteStats?.totalShoutoutCalls) }}
                   </dd>
                 </div>
               </dl>

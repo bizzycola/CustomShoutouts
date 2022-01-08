@@ -15,6 +15,7 @@ import { useAccount } from '~/logic/account'
 
 export const authClient: Ref<Auth0Client | undefined> = ref()
 const isInitialized = ref(false)
+
 const subscriptionClient = new SubscriptionClient(WS_GQL, {
   reconnect: true,
   connectionParams: async() => {
@@ -44,8 +45,8 @@ export const install: UserModule = ({ router, isClient, app }) => {
     cacheLocation: 'localstorage',
     useRefreshTokens: true,
   }).then(async(auth0) => {
-    isInitialized.value = true
     authClient.value = auth0
+    isInitialized.value = true
 
     accessToken.value = (await auth0.getIdTokenClaims())?.__raw
     // account.value = JSON.stringify(await auth0.getUser())

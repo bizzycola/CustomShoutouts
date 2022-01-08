@@ -13,7 +13,9 @@ specifiers:
   '@iconify-json/codicon': ^1.0.10
   '@iconify-json/eos-icons': ^1.0.3
   '@iconify-json/fa-regular': ^1.0.2
+  '@iconify-json/heroicons-outline': ^1.0.2
   '@iconify-json/ic': ^1.0.7
+  '@iconify-json/ls': ^1.0.1
   '@iconify-json/teenyicons': ^1.0.1
   '@intlify/vite-plugin-vue-i18n': ^3.2.1
   '@tailwindcss/forms': ^0.4.0
@@ -98,7 +100,9 @@ devDependencies:
   '@iconify-json/codicon': 1.0.10
   '@iconify-json/eos-icons': 1.0.3
   '@iconify-json/fa-regular': 1.0.2
+  '@iconify-json/heroicons-outline': 1.0.2
   '@iconify-json/ic': 1.0.7
+  '@iconify-json/ls': 1.0.1
   '@iconify-json/teenyicons': 1.0.1
   '@intlify/vite-plugin-vue-i18n': 3.2.1_vite@2.7.6+vue-i18n@9.1.9
   '@types/markdown-it-link-attributes': 3.0.1
@@ -1704,8 +1708,20 @@ packages:
       '@iconify/types': 1.0.12
     dev: true
 
+  /@iconify-json/heroicons-outline/1.0.2:
+    resolution: {integrity: sha512-bKcALoCJy9AB+Ojlb58rF/IklUOYBDeq8RaCme1Ez/rnFLAmwqrDY96B1f0/PtfhYwjo8v1fXiv9hL7QWImpPQ==}
+    dependencies:
+      '@iconify/types': 1.0.12
+    dev: true
+
   /@iconify-json/ic/1.0.7:
     resolution: {integrity: sha512-Cz2u1h+L/aMmeyKrcYVUY0SZdntvYK4cD5XrdT+XnyESh6IwzJ9hyNaIBGL6fnz5KCL7AfmFMlBhs0bilhrwXQ==}
+    dependencies:
+      '@iconify/types': 1.0.12
+    dev: true
+
+  /@iconify-json/ls/1.0.1:
+    resolution: {integrity: sha512-NBVlwsdHWPxPh4f89SwsJUk480PLyvSSez61SYGxEHsN/hZ1nUNmd+kAIPtzal75bqphAFgeqmphwfQ3vR+L5Q==}
     dependencies:
       '@iconify/types': 1.0.12
     dev: true
