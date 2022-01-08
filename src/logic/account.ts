@@ -15,8 +15,8 @@ interface Me {
   }
 }
 
-export function useAccount() {
-  if (account.value) {
+export function useAccount(doCheck = false) {
+  if (account.value && !doCheck) {
     return {
       hasAccount: ref(true),
       account,

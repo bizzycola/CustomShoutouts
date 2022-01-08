@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Dialog, DialogOverlay, DialogTitle, Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { Dialog, DialogOverlay, DialogTitle, Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions, Switch, SwitchGroup, SwitchLabel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { useRouter } from 'vue-router'
 import { useMutation, useQuery } from 'vql'
 import Swal from 'sweetalert2'
@@ -27,9 +27,11 @@ const { fetching, error, data, executeQuery } = useQuery({ variables: { filter }
 
 const { createToast } = useToast()
 const loading = ref(true)
+
+const accData = ref<AppUser | undefined>()
 onMounted(() => {
-  const accData = JSON.parse(account.value)
-  if (!accData.isAdmin)
+  accData.value = JSON.parse(account.value)
+  if (!accData.value || !accData.value.isAdmin)
     push('/')
   else
     loading.value = false
@@ -39,6 +41,7 @@ onMounted(() => {
 const editOpen = ref(false)
 const selUser = ref<AppUser | undefined>()
 const updatedSelMax = ref(0)
+const updateIsAdmin = ref(false)
 
 // Notify Dialog
 const notifOpen = ref(false)
@@ -68,6 +71,7 @@ const doSearch = (e: any) => {
 const openEdit = (user: AppUser) => {
   selUser.value = user
   updatedSelMax.value = user.maxAllowedShoutouts
+  updateIsAdmin.value = user.isAdmin
   editOpen.value = true
 }
 
@@ -82,6 +86,7 @@ const updateUser = async() => {
     input: {
       userId: selUser.value?.id,
       maxShoutouts: Number.parseInt(updatedSelMax.value as any),
+      isAdmin: updateIsAdmin.value,
     },
   })
 
@@ -294,6 +299,15 @@ mutation($input: UpdateUserInput!) {
                   Update {{ selUser?.username }}
                 </DialogTitle>
                 <div class="mt-3">
+                  <SwitchGroup as="div" class="flex items-center mb-3 ">
+                    <Switch v-model="updateIsAdmin" :class="[updateIsAdmin ? 'bg-teal-600' : 'bg-deployr-800', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
+                      <span aria-hidden="true" :class="[updateIsAdmin ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200']" />
+                    </Switch>
+                    <SwitchLabel as="span" class="ml-3">
+                      <span class="text-sm font-medium text-gray-200">Administrator </span>
+                      <span class="text-sm text-gray-500" />
+                    </SwitchLabel>
+                  </SwitchGroup>
                   <div class="border bg-deployr-800 border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600 text-left">
                     <label for="maxshoutouts" class="block text-xs font-medium text-gray-100">Max Shoutouts</label>
                     <input

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useMutation, useQuery, useSubscription } from 'vql'
+import { useAccount } from './logic/account'
 import { useToast } from '~/composables/useToast'
+
+const useAcc = useAccount(true)
 
 const { createToast } = useToast()
 
