@@ -18,9 +18,16 @@ const accData = JSON.parse(account.value)
     flex="~ row lg:col"
     shadow="lg"
   >
-    <h1 class="sm:text-2xl text-2xl font-medium mr-2 lg:mb-2 lg:mr-0 text-gray-400 lg:flex items-center px-4 py-4 lg:block hover:bg-dca-600 lg:hover:bg-transparent">
+    <h1 class="sm:text-2xl text-2xl font-medium mr-2 lg:mb-2 lg:mr-0 text-gray-400 lg:flex items-center px-4 py-4 lg:block hover:bg-dca-600 lg:hover:bg-transparent lg:hidden">
       <router-link to="/" class="lg:flex lg:flex-row m-auto">
-        <span class="lg:hidden inline">CSO</span><span class="hidden lg:inline"> Custom Shoutouts</span>
+        <span class="inline">CSO</span>
+      </router-link>
+    </h1>
+    <h1
+      class="sm:text-2xl text-2xl font-medium mr-2 lg:mb-2 lg:mr-0 text-gray-400 lg:flex items-center px-4 py-4 lg:block hover:bg-dca-600 lg:hover:bg-transparent -lg:hidden navhead"
+    >
+      <router-link to="/" class="lg:flex lg:flex-row m-auto">
+        <span>Custom Shoutouts</span>
       </router-link>
     </h1>
 

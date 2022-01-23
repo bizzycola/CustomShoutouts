@@ -14,7 +14,7 @@ const signupCode = ref('')
 const loading = ref(false)
 
 const instance = axios.create({
-  baseURL: `${API_URL}/api`,
+  baseURL: `${API_URL}/`,
 })
 
 const signup = async() => {

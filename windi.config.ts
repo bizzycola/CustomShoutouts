@@ -24,6 +24,7 @@ export default defineConfig({
           600: '#22222c',
           700: '#171721',
           800: '#14141c',
+          900: '#12121a',
         },
         counterly: {
           'logo': '#35C581',
